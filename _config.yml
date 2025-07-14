@@ -3,7 +3,7 @@ title: ImvunoTech
 email: sihle.manqele@gmail.com # Replace with your actual email
 description: "ImvunoTech: Cultivating Innovation with Conversational AI across Agriculture, Education, E-commerce, Systems Development, Startup Grooming, and Content Creation."
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://imvunotech.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 
 # Build settings
 markdown: kramdown
