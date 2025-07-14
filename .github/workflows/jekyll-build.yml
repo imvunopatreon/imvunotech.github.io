@@ -23,8 +23,6 @@ jobs:
         with:
           ruby-version: '3.3' # Or specify your exact Ruby version, e.g., '3.2'
           bundler-cache: true # runs bundle install and caches gems
-          clean: true # <--- ADD THIS LINE
-
 
       - name: Build Jekyll site
         run: bundle exec jekyll build
