@@ -1,41 +1,56 @@
-name: Deploy Jekyll site to GitHub Pages
+# This workflow will build a Jekyll site and deploy it to GitHub Pages
+name: Deploy Jekyll site to Pages
 
 on:
   push:
-    branches:
-      - main # Set a branch to deploy from (e.g. main, master)
+    branches: ["main"] # Set a branch to deploy from (e.g., main, master)
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
-jobs:
-  build-and-deploy:
-    runs-on: ubuntu-latest
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+permissions:
+  contents: read
+  pages: write # Required for actions/deploy-pages to deploy to GitHub Pages
+  id-token: write # Required for actions/deploy-pages to authenticate with OIDC
 
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  # Build job
+  build:
+    runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
+      - name: Checkout
         uses: actions/checkout@v4
         with:
-          token: ${{ secrets.GITHUB_TOKEN }} # Required for pushing to gh-pages branch
+          fetch-depth: 0 # Not strictly necessary, but can help with some Jekyll plugins
 
-      - name: Set up Ruby
+      - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '3.3' # Or specify your exact Ruby version, e.g., '3.2'
-          bundler-cache: true # runs bundle install and caches gems
+          ruby-version: '3.3' # Or '3.2', ensure this matches your Gemfile.lock's Ruby requirement
+          bundler-cache: true
+          clean: true # Ensures a clean bundle install
 
       - name: Build Jekyll site
-        run: bundle exec jekyll build
+        run: bundle exec jekyll build --baseurl "" # Set baseurl to empty string for User/Org Pages
 
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v4 # This action handles deployment
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./_site # The default output directory for Jekyll
-          publish_branch: gh-pages # The branch where the built site will be pushed
-          # if you are deploying to imvunotech.github.io, this should be the 'main' branch
-          # If your repo is named USERNAME.github.io, then set publish_branch: main (or master)
-          # If your repo is NOT named USERNAME.github.io (it's a project page), then set publish_branch: gh-pages
-        # For imvunotech.github.io (User/Organization Page), you should actually publish to 'main'
-        # So the publish_branch should be 'main' for your specific use case.
-        # However, the setup often creates a 'gh-pages' branch by default, let's clarify that below.
+          path: './_site' # The directory where your built site is located
+
+  # Deployment job
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4 # This is the official GitHub Pages deploy action
