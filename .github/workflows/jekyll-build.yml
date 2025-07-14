@@ -32,7 +32,7 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./_site # The default output directory for Jekyll
-          publish_branch: main # The branch where the built site will be pushed
+          publish_branch: gh-pages # The branch where the built site will be pushed
           # if you are deploying to imvunotech.github.io, this should be the 'main' branch
           # If your repo is named USERNAME.github.io, then set publish_branch: main (or master)
           # If your repo is NOT named USERNAME.github.io (it's a project page), then set publish_branch: gh-pages
