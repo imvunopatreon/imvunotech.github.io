@@ -1,0 +1,21 @@
+# Site settings
+title: ImvunoTech
+email: sihle.manqele@gmail.com # Replace with your actual email
+description: "ImvunoTech: Cultivating Innovation with Conversational AI across Agriculture, Education, E-commerce, Systems Development, Startup Grooming, and Content Creation."
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "" # the base hostname & protocol for your site, e.g. http://example.com
+
+# Build settings
+markdown: kramdown
+#theme: minima # You can change this or remove it if you're building from scratch
+plugins:
+  - jekyll-feed
+
+# Navigation links
+header_pages:
+  - index.html
+  - projects.html
+  - schedule.html
+
+# Custom variables (optional, but good for branding)
+imvunotech_logo: /assets/images/imvuno_logo.jpg

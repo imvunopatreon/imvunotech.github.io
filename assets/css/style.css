@@ -1,0 +1,175 @@
+/* Custom Styles for ImvunoTech */
+
+/* Body & Typography */
+body {
+    font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f8f9fa;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    color: #212529;
+}
+
+/* Header & Navigation */
+.site-header {
+    box-shadow: 0 2px 4px rgba(0,0,0,.1);
+    transition: background-color 0.3s ease;
+}
+
+.site-logo {
+    height: 40px; /* Adjust logo size as needed */
+    width: auto;
+    border-radius: 50%; /* If your logo looks good in a circle */
+}
+
+.site-header .nav-link {
+    color: #495057;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    transition: color 0.3s ease;
+}
+
+.site-header .nav-link:hover,
+.site-header .nav-link.active {
+    color: #007bff; /* Primary color for active/hover */
+    background-color: rgba(0, 123, 255, 0.1); /* Light background for active/hover */
+    border-radius: 0.25rem;
+}
+
+/* General Layout */
+.container {
+    max-width: 1200px; /* Max width for content */
+}
+
+.py-5 {
+    padding-top: 3rem !important;
+    padding-bottom: 3rem !important;
+}
+
+/* Card Styling */
+.card {
+    border: none;
+    border-radius: 0.75rem;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.08);
+}
+
+/* Icon Box Styling for Sectors */
+.icon-box {
+    background-color: #fff;
+    border: 1px solid #e9ecef;
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center content vertically */
+    align-items: center; /* Center content horizontally */
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.icon-box:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 0.8rem 1.6rem rgba(0, 0, 0, 0.1);
+}
+
+.icon-box i {
+    font-size: 3.5rem; /* Larger icons */
+    margin-bottom: 1rem;
+    color: #007bff; /* Default icon color */
+}
+
+/* Specific icon colors (adjust as per your preference) */
+.icon-box .text-success { color: #28a745 !important; }
+.icon-box .text-info { color: #17a2b8 !important; }
+.icon-box .text-primary { color: #007bff !important; }
+.icon-box .text-secondary { color: #6c757d !important; }
+.icon-box .text-danger { color: #dc3545 !important; }
+.icon-box .text-warning { color: #ffc107 !important; }
+
+
+/* Buttons */
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+    font-weight: 600;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+.btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+
+/* Contact Form */
+.contact-form {
+    background-color: #fff;
+    padding: 2.5rem;
+    border-radius: 0.75rem;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.08);
+}
+
+.form-group label {
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+
+.form-control {
+    border-radius: 0.5rem;
+    padding: 0.75rem 1rem;
+    border: 1px solid #ced4da;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.form-control:focus {
+    border-color: #80bdff;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+textarea.form-control {
+    min-height: 120px;
+}
+
+/* Calendly Styling */
+.calendly-section {
+    background-color: #fff;
+    padding: 2.5rem;
+    border-radius: 0.75rem;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.08);
+    text-align: center;
+}
+
+.calendly-inline-widget {
+    margin: 2rem auto; /* Center the widget */
+    max-width: 900px; /* Prevent it from being too wide */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .site-logo {
+        height: 30px;
+    }
+    .site-header .fs-4 {
+        font-size: 1.25rem !important;
+    }
+    .site-header .nav-item {
+        margin-left: 0.5rem;
+    }
+    .site-header .nav-link {
+        padding: 0.4rem 0.8rem;
+    }
+    .display-4 {
+        font-size: 2.5rem;
+    }
+    .lead {
+        font-size: 1.1rem;
+    }
+    .icon-box i {
+        font-size: 2.5rem;
+    }
+}
